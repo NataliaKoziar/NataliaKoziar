@@ -3,18 +3,25 @@ import { AppRoutes } from "../../common/Routes"
 import { LoginComponent } from "./pages/login/LoginComponent"
 import { NotFoundPage } from "./pages/notFound/NotFoundPage"
 import { SignUpComponent } from "./pages/signUp/SignUpComponent"
+import { ProfileComponent } from "./pages/profile/ProfileComponent"
 import s from "./main.module.scss"
-// import { Modal } from "./modal/Modal"
+import { Modal } from "../modal/Modal"
+import { useNavigate } from "react-router-dom"
+export const MainComponent = () => {
+    const navigate = useNavigate()
+    const handleClose = () => {
+        navigate(AppRoutes.MAIN)
+    }
 
-export const MainComponent =()=>{
-   return(
-    <div className={s.container}>
-     <Routes>
-        <Route path={AppRoutes.MAIN} element = {<h1>Main page</h1>}/>
-        <Route path={AppRoutes.LOGIN} element = {<LoginComponent/>}/>
-        <Route path={AppRoutes.SIGN_UP} element = {<SignUpComponent/>}/>
-        <Route path="*" element={<NotFoundPage/>}/>
-    </Routes>
-    </div>
+    return (
+        <div className={s.container}>
+            <Routes>
+                <Route path={AppRoutes.MAIN} element={<h1>Main page</h1>} />
+                <Route path={AppRoutes.LOGIN} element={<Modal onClose={handleClose} children={<LoginComponent />} />} />
+                <Route path={AppRoutes.SIGN_UP} element={<Modal onClose={handleClose} children={<SignUpComponent />} />} />
+                <Route path={AppRoutes.PROFILE} element={<ProfileComponent />} />
+                <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+        </div>
     )
 }

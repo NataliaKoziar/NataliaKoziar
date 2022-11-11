@@ -1,0 +1,54 @@
+.container {
+    padding: 0px 20px;
+
+    .headerContainer {
+        display: flex;
+        align-items: center;
+        border: 2px solid grey;
+        border-radius: 5px;
+        padding: 10px;
+        background: linear-gradient(to right top, white, grey, rgb(9, 46, 193));
+
+        .avatar {
+            height: 200px;
+            width: 200px;
+            border: 2px solid rgb(174, 171, 171);
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 50px;
+        }
+    }
+
+    .userData {
+        position: relative;
+        // display: flex;
+        // align-items: center;
+        border: 2px solid rgb(179, 175, 175);
+        border-radius: 5px;
+        margin: 10px 0px;
+        padding: 20px;
+        text-align: start;
+
+        .title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            
+            // width: 25%;
+        }
+
+        .itemList {
+            // width: 80%;
+
+            .item {
+                display: flex;
+                align-items: center;
+                .category{
+                    width: 20%;
+                }
+            }
+
+
+        }
+    }
+}
