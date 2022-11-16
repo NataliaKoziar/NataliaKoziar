@@ -21,8 +21,6 @@
 
     .userData {
         position: relative;
-        // display: flex;
-        // align-items: center;
         border: 2px solid rgb(179, 175, 175);
         border-radius: 5px;
         margin: 10px 0px;
@@ -30,24 +28,41 @@
         text-align: start;
 
         .title {
-            font-size: 20px;
+            font-size: 25px;
             font-weight: 500;
             margin-bottom: 15px;
-            
-            // width: 25%;
+
         }
 
         .itemList {
-            // width: 80%;
-
+            color: gray;
             .item {
                 display: flex;
                 align-items: center;
-                .category{
-                    width: 20%;
+
+                .category {
+                    min-width: 20%;
                 }
+
+            }
+            ul{
+             padding-left: 20px;  
+             font-size: 18px; 
+               
             }
 
+            .name {
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 0px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+            .time{
+                font-size: 12px;
+            }
 
         }
     }

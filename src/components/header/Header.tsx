@@ -17,6 +17,7 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import { signOut } from "firebase/auth"
 export const Header: React.FC = () => {
     const [user] = useAuthState(auth)
+    console.log(user)
     const handleSignOut = async () => {
         await signOut(auth)
     }

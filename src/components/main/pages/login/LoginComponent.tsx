@@ -4,8 +4,9 @@ import TextField from '@mui/material/TextField';
 import { useForm, } from "react-hook-form"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import s from "../signUp/SignUp.module.scss"
-import { auth } from "../../../../firebase";
+import db, { auth } from "../../../../firebase";
 import { useNavigate } from "react-router-dom"
+
 
 interface Login {
     email: string
@@ -16,9 +17,17 @@ interface Login {
 export const LoginComponent: React.FC = () => {
     const { register, formState: { errors, }, handleSubmit, reset, } = useForm<Login>();
     const navigate = useNavigate();
-
+    
+    
     const handleLogin = async (data: Login) => {
         try {
+            // const collectionRef = collection(db, "users")
+            //     const docSnap = await getDocs(collectionRef);
+            //     docSnap.forEach(doc => {
+            //         console.log(doc.data());
+            //     })
+            //     const snap = await getDoc(doc(db, 'users', 'x0R7v1dxvQOE5IEhzUCV'))
+            // console.log(snap.data())
             const user = await signInWithEmailAndPassword(auth, data.email, data.password)
             await navigate(AppRoutes.PROFILE)
         } catch (e) {

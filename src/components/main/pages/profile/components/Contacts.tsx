@@ -1,9 +1,9 @@
 import s from "../profile.module.scss"
 import { useState } from "react"
-import { EditComponent } from "../../../../editComponent"
-import { FormInfo } from "../../../../modal/forms/FormInfo"
+import { EditComponent } from "../../../../modal/editComponent"
 import { Modal } from "../../../../modal/Modal"
 import { useTypedSelector } from "../../../../../common/hooks/useTypedSelector"
+import { FormContacts } from "../../../../modal/forms/FormContacts"
 
 
 export const ContactsComponent = () => {
@@ -16,6 +16,7 @@ export const ContactsComponent = () => {
         <div className={s.userData}>
             <div className={s.title}>Contacts</div>
             <div className={s.itemList}>
+                <hr/>
                 <div className={s.item}>
                     <div className={s.category}>Address:</div>
                     <div className="description">{user.address}</div>
@@ -42,7 +43,7 @@ export const ContactsComponent = () => {
                 </div>
 
                 <EditComponent onOpen={handleOpenModal} />
-                {isModalOpen && (<Modal onClose={handleCloseModal} children={<FormInfo />} />)}
+                {isModalOpen && (<Modal onClose={handleCloseModal} children={<FormContacts onClose={handleCloseModal}/>} />)}
             </div>
         </div>
     )

@@ -4,26 +4,29 @@ export interface IUser{
     img:string | null
     id:string
     address:string|null
-    education:IEducation[] |[ null]
+    education:IEducation[] |[]
     about:string | null
     dateOfBirth:string | null
     email:string | null
-    password:string
+    password:string|null
     position:string | null
-    skills:string[] |[null]
-    experience:IExperience[]|[null]
+    skills:string[] |[]
+    experience:IExperience[]|[]
     phone:string|null
     linkedIn:string|null
     facebook: string|null
     gitHub:string|null
     hobbies:string|null
-    languages:ILanguage[]|[null]
+    languages:ILanguage[]|[]
 
 }
 export interface IEducation{
-    univercity:string
-    direction:string
-    period:string
+    univercity:string|null
+    direction:string | null
+    period:{
+        start:string | null
+        end:string | null
+    }|null
 }
 export interface IExperience{
     company:string

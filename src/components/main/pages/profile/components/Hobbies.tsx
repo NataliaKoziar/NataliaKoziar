@@ -1,10 +1,12 @@
 import s from "../profile.module.scss"
 import { useState } from "react"
-import { EditComponent } from "../../../../editComponent"
+import { EditComponent } from "../../../../modal/editComponent"
 import { FormInfo } from "../../../../modal/forms/FormInfo"
 import { Modal } from "../../../../modal/Modal"
+import { useTypedSelector } from "../../../../../common/hooks/useTypedSelector"
 
 export const HobbiesComponent = () => {
+    const data = useTypedSelector(state=>state.user.user?.hobbies)
     const [isModalOpen, setModalOpen] = useState<boolean>(false)
     const handleCloseModal = () => setModalOpen(false)
     const handleOpenModal = () => setModalOpen(true)
@@ -15,11 +17,13 @@ export const HobbiesComponent = () => {
         <div className={s.userData}>
             <div className={s.title}>Hobbies</div>
             <div className={s.itemList}>
+                <hr/>
                 <div className={s.item}>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia saepe doloremque enim libero vel dicta possimus a accusamus ea autem?
+                   {(data?.trim().length !== undefined && data?.trim().length >0)?
+                   data: "Data has been empty yet"}
                 </div>
                 <EditComponent onOpen={handleOpenModal} />
-                {isModalOpen && (<Modal onClose={handleCloseModal} children={<FormInfo />} />)}
+                {isModalOpen && (<Modal onClose={handleCloseModal} children={<FormInfo onClose={handleCloseModal} />} />)}
             </div>
         </div>
     )

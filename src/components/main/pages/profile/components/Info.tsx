@@ -1,5 +1,5 @@
 import {useState} from "react"
-import {EditComponent} from "../../../../editComponent"
+import {EditComponent} from "../../../../modal/editComponent"
 import { FormInfo } from "../../../../modal/forms/FormInfo"
 import { Modal } from "../../../../modal/Modal"
 import { useTypedSelector } from "../../../../../common/hooks/useTypedSelector"
@@ -16,6 +16,7 @@ const handleOpenModal = ()=>setModalOpen(true)
         <div className={s.userData}>
         <div className={s.title}>Personal information</div>
         <div className={s.itemList}>
+            <hr/>
             <div className={s.item}>
                 <div className={s.category}>Full name: </div>
                 <div className="description">{user.firstName} {user.lastName}</div>
@@ -29,7 +30,7 @@ const handleOpenModal = ()=>setModalOpen(true)
                 <div className="description">{user.position}</div>
                            </div>
             <EditComponent onOpen={handleOpenModal}/>
-            {isModalOpen && (<Modal onClose={handleCloseModal} children={<FormInfo/>} />)}
+            {isModalOpen && (<Modal onClose={handleCloseModal} children={<FormInfo onClose={handleCloseModal}/>} />)}
         </div>
     </div>
     )

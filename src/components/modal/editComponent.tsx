@@ -8,7 +8,7 @@ interface Edit{
 export const EditComponent = ({onOpen}:Edit) => {
     return (
         <Tooltip title="edit" >
-            <Fab color="primary" aria-label="edit" sx={{position:"absolute", bottom:5, right:10, zIndex:1}} onClick={onOpen}>
+            <Fab color="primary" size="medium" aria-label="edit" sx={{position:"absolute", bottom:5, right:10, zIndex:1}} onClick={onOpen}>
                 <EditIcon />
             </Fab>
         </Tooltip>)
