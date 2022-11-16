@@ -8,7 +8,7 @@ interface Add{
 export const AddComponent = ({onOpen}:Add) => {
     return (
         <Tooltip title="add" >
-            <Fab color="primary" size="medium" aria-label="add" sx={{position:"absolute", bottom:5, right:10, zIndex:1}} onClick={onOpen}>
+            <Fab  size="medium" aria-label="add" sx={{position:"absolute", top:5, right:10, zIndex:1}} onClick={onOpen}>
                 <AddIcon />
             </Fab>
         </Tooltip>)

@@ -9,14 +9,19 @@ import { BasicDateRangePicker } from '../DateRangePicker';
 interface FormProps {
     onClose: () => void
     item?: IEducation
+    index?: number
 }
 
 
 
-export const FormEducation = ({ item, onClose }: FormProps) => {
+export const FormEducation = ({ item, index,  onClose }: FormProps) => {
     const user = useTypedSelector(state => state.user.user)
     const title = item ? "Edit data about education" : "Add data about education"
     const { register, formState: { errors, }, handleSubmit, reset, } = useForm<IEducation>();
+   
+    console.log(index);
+    
+    
 
     const addUser = async (data: any) => {
         const docRef = doc(db, "users", user.id)
@@ -42,9 +47,35 @@ export const FormEducation = ({ item, onClose }: FormProps) => {
         }
     }
 
+
+    const editUser = async (data: any) => {
+        const docRef = doc(db, "users", user.id)
+        let newEducation = user.education 
+        let obj :IEducation = {
+            univercity:data.univercity,
+            direction: data.direction,
+            period:{
+                start:data.start,
+                end:data.end
+            }
+        }
+        // @ts-ignore
+        newEducation[index]=obj
+    
+       try {
+            await setDoc(docRef, {
+                ...user,
+               education: newEducation
+            })
+        } catch (e) {
+            console.log(e);
+
+        }
+    }
+
     const onSubmit = (data: any) => {
         console.log(data);
-        addUser(data)
+       ( item && index )? editUser(data) :addUser(data)
         reset()
         onClose()
     }
