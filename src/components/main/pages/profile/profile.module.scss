@@ -24,7 +24,7 @@
         border: 2px solid rgb(179, 175, 175);
         border-radius: 5px;
         margin: 10px 0px;
-        padding: 20px 0px 20px 20px;
+        padding: 20px 5px 5px 20px;
         text-align: start;
 
         .title {
@@ -36,6 +36,7 @@
 
         .itemList {
             color: gray;
+            min-height: 50px;
             .item {
                 display: flex;
                 align-items: center;

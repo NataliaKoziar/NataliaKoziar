@@ -29,13 +29,16 @@ export interface IEducation{
     }|null
 }
 export interface IExperience{
-    company:string
-    position:string
-    period:string
+    company:string|null
+    position:string | null
+    period:{
+        start:string | null
+        end:string | null
+    }|null
 }
 export interface ILanguage{
-    language:string
-    level:string
+    language:string 
+    level:string 
 }
 
 

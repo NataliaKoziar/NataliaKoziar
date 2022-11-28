@@ -6,14 +6,14 @@ import { LocalizationProvider } from '@mui/x-date-pickers-pro';
 import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
 import { DateRangePicker, DateRange } from '@mui/x-date-pickers-pro/DateRangePicker';
 import {UseFormRegister} from "react-hook-form"
-import {IEducation} from "../../redux/models"
+import {IEducation, IExperience} from "../../redux/models"
 
 interface PickerProps{
     period:{
         start:string|null
         end:string|null
     } | null
-    register:UseFormRegister<IEducation>
+    register:UseFormRegister<IEducation> |UseFormRegister<IExperience>
 }
 
 export const BasicDateRangePicker = ({period, register}:PickerProps)=> {

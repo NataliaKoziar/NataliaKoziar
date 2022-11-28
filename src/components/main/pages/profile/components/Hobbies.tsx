@@ -4,6 +4,7 @@ import { EditComponent } from "../../../../modal/editComponent"
 import { FormInfo } from "../../../../modal/forms/FormInfo"
 import { Modal } from "../../../../modal/Modal"
 import { useTypedSelector } from "../../../../../common/hooks/useTypedSelector"
+import { FormHobby } from "../../../../modal/forms/FormHobby"
 
 export const HobbiesComponent = () => {
     const data = useTypedSelector(state=>state.user.user?.hobbies)
@@ -23,7 +24,7 @@ export const HobbiesComponent = () => {
                    data: "Data has been empty yet"}
                 </div>
                 <EditComponent onOpen={handleOpenModal} />
-                {isModalOpen && (<Modal onClose={handleCloseModal} children={<FormInfo onClose={handleCloseModal} />} />)}
+                {isModalOpen && (<Modal onClose={handleCloseModal} children={<FormHobby data={data} onClose={handleCloseModal} />} />)}
             </div>
         </div>
     )

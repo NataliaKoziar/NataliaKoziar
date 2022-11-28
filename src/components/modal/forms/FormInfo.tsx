@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 import * as React from 'react';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import Stack from '@mui/material/Stack';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -10,46 +10,53 @@ import { useForm } from "react-hook-form"
 import { doc, setDoc } from 'firebase/firestore';
 import db from "../../../firebase"
 
-interface FormProps{
-    onClose:()=>void
+interface FormProps {
+    onClose: () => void
 }
 
 interface Info {
     firstName: string
     lastName: string
-    dateOfBirth:string
-    position:string
+    dateOfBirth: string
+    position: string
 }
 
-export const FormInfo = ({onClose}:FormProps) => {
+export const FormInfo = ({ onClose }: FormProps) => {
     const user = useTypedSelector(state => state.user.user)
-    console.log(user);
-    let dateOfBirth = (user.dateOfBirth !== null)? dayjs(user.dateOfBirth, 'DD/MM/YYYY').format("YYYY-MM-DD"):null
-    
-    
-    
+    // console.log(user);
+    let dateOfBirth = (user.dateOfBirth !== null) ? dayjs(user.dateOfBirth, 'DD/MM/YYYY').format("YYYY-MM-DD") : null
+
+
+
     const { register, formState: { errors, }, handleSubmit, reset, } = useForm<Info>();
     // @ts-ignore
     const [value, setValue] = React.useState<string | null>(dayjs(dateOfBirth));
-    // console.log(value);
-    const editUser =async (data:Info) => {
+   
+    const editUser = async (data: Info) => {
         const docRef = doc(db, "users", user.id)
-        try{
-          await setDoc(docRef, {
-            ...user,
-            ...data
-          })
-        }catch(e){
+        console.log(user);
+        console.log(data);
+
+
+        try {
+            await setDoc(docRef, {
+                ...user,
+                ...data,
+                dateOfBirth:dayjs(value,"YYYY-MM-DD").format('DD/MM/YYYY')
+
+            })
+        } catch (e) {
             console.log(e);
-            
+
         }
     }
 
+
     const onSubmit = (data: Info) => {
-        console.log(data);
+        console.log(data, value);
         editUser(data)
         reset()
-       onClose()
+        onClose()
     }
 
     return (
@@ -57,14 +64,14 @@ export const FormInfo = ({onClose}:FormProps) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <h3>Personal information</h3>
             <TextField label="First name" defaultValue={user.firstName} error={(errors?.firstName) ? true : false}
-          
-             {...register("firstName", {
-                required: true,
-            })}/>
+
+                {...register("firstName", {
+                    required: true,
+                })} />
             <TextField label="Last name" defaultValue={user.lastName} error={(errors?.lastName) ? true : false}
-             {...register("lastName", {
-                required: true,
-            })} />
+                {...register("lastName", {
+                    required: true,
+                })} />
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Stack spacing={3}>
                     <DatePicker
@@ -75,24 +82,38 @@ export const FormInfo = ({onClose}:FormProps) => {
                         value={value}
                         inputFormat="DD/MM/YYYY"
                         onChange={(newValue) => {
-                           
-                            setValue(newValue);
+                            // @ts-ignore
+                            let year = newValue["$y"]
+                            // @ts-ignore
+                            let month = (newValue["$M"] + 1)
+                            if (month < 10) {
+                                month = `0${month}`
+                            }
+                            // @ts-ignore
+                            let day = (newValue["$D"])
+                            if (day < 10) {
+                                day = `0${day}`
+                            }
+                            let newTime = year + "-" + month + "-" + day
+                            // @ts-ignore
+                            setValue(newTime);
+
                         }}
-                        renderInput={(params) => <TextField {...params}  error={(errors?.dateOfBirth) ? true : false}
-                        {...register("dateOfBirth", {
-                            required: true,
-                        })} />}
+                        renderInput={(params) => <TextField {...params} error={(errors?.dateOfBirth) ? true : false}
+                            {...register("dateOfBirth", {
+                                required: true,
+                            })} />}
                     />
                 </Stack>
             </LocalizationProvider>
             <TextField label="Position" defaultValue={user.position} error={(errors?.position) ? true : false}
-             {...register("position", {
-                required: true,
-            })}/>
-             <div style={{height:"20px", color:"red"}}>
-                {(errors?.firstName || errors?.lastName || errors?.dateOfBirth || errors?.position) && 
-                <span>{ "All field must be required !!!"}</span>}
-                </div>
+                {...register("position", {
+                    required: true,
+                })} />
+            <div style={{ height: "20px", color: "red" }}>
+                {(errors?.firstName || errors?.lastName || errors?.dateOfBirth || errors?.position) &&
+                    <span>{"All field must be required !!!"}</span>}
+            </div>
             <input type="submit" value={'Save'} />
         </form>)
 

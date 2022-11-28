@@ -8,6 +8,7 @@ import db, { auth } from "../../../../firebase";
 import { useNavigate } from "react-router-dom"
 
 
+
 interface Login {
     email: string
     password: string
@@ -17,8 +18,8 @@ interface Login {
 export const LoginComponent: React.FC = () => {
     const { register, formState: { errors, }, handleSubmit, reset, } = useForm<Login>();
     const navigate = useNavigate();
-    
-    
+
+
     const handleLogin = async (data: Login) => {
         try {
             // const collectionRef = collection(db, "users")
@@ -29,7 +30,7 @@ export const LoginComponent: React.FC = () => {
             //     const snap = await getDoc(doc(db, 'users', 'x0R7v1dxvQOE5IEhzUCV'))
             // console.log(snap.data())
             const user = await signInWithEmailAndPassword(auth, data.email, data.password)
-            await navigate(AppRoutes.PROFILE)
+            navigate(AppRoutes.PROFILE)
         } catch (e) {
             console.log(e);
             navigate(AppRoutes.NOT_FOUND)
@@ -37,7 +38,6 @@ export const LoginComponent: React.FC = () => {
     }
 
     const onSubmit = (data: Login) => {
-        console.log(data);
         reset()
         handleLogin(data)
     }

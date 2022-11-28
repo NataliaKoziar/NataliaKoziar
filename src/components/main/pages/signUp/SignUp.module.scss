@@ -11,13 +11,14 @@ form{
     background-color: white;
     margin: 0 auto;
     padding: 0px 20px;
-    height: 550px;
+    height: 570px;
     width: 400px;
     border: 2px solid grey;
-    border-radius: 5px;
+    border-radius: 7px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    color: rgb(60, 60, 60);
     input{
         height: 56px;
         font-size: 16px;
@@ -26,4 +27,21 @@ form{
         border: 2px solid transparent;
         border-radius: 5px;
     }
+    textarea{
+       height: 250px; 
+       border: 2px solid rgb(213, 209, 209);
+       border-radius: 5px;
+       padding: 10px;
+       font-size: 16px;
+    }
+    .btn{
+        height: 40px;
+        padding: 5px 25px;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+
+    }
+    textarea:focus{
+        outline: none;
     }
