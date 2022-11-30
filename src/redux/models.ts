@@ -2,6 +2,7 @@ export interface IUser{
     firstName:string|null
     lastName:string|null
     img:string | null
+    imgName:string | null
     id:string
     address:string|null
     education:IEducation[] |[]
@@ -18,6 +19,7 @@ export interface IUser{
     gitHub:string|null
     hobbies:string|null
     languages:ILanguage[]|[]
+    isPublic:boolean
 
 }
 export interface IEducation{

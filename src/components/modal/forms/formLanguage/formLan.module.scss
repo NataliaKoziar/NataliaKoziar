@@ -1,8 +1,16 @@
 .form{
-   height: 350px;
+   height: auto;
    width: 500px;
-    .row{
-        display: flex;
-        justify-content: space-evenly;
-    }
+   .fields{
+
+       .row{
+           display: flex;
+           justify-content: space-evenly;
+           
+       }
+   }
+   input{
+    margin: 20px 0px;
+   }
+   
 }

@@ -3,7 +3,7 @@ import { AppRoutes } from "../../common/Routes"
 import s from "./Modal.module.scss"
 interface ModalProps {
     children: React.ReactNode
-    onClose:()=>void
+    onClose?:()=>void
 }
 
 export const Modal = ({ children, onClose }: ModalProps) => {

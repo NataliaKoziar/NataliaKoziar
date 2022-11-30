@@ -14,8 +14,10 @@
             width: 200px;
             border: 2px solid rgb(174, 171, 171);
             border-radius: 50%;
-            overflow: hidden;
             margin-right: 50px;
+            background-position: center;
+            background-size: 120%;
+            position: relative;
         }
     }
 
@@ -37,6 +39,7 @@
         .itemList {
             color: gray;
             min-height: 50px;
+
             .item {
                 display: flex;
                 align-items: center;
@@ -46,10 +49,11 @@
                 }
 
             }
-            ul{
-             padding-left: 20px;  
-             font-size: 18px; 
-               
+
+            ul {
+                padding-left: 20px;
+                font-size: 18px;
+
             }
 
             .name {
@@ -61,7 +65,8 @@
             .subtitle {
                 font-size: 16px;
             }
-            .time{
+
+            .time {
                 font-size: 12px;
             }
 

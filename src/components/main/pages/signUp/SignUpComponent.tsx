@@ -33,6 +33,7 @@ export const SignUpComponent: React.FC = () => {
         await addDoc(usersRef, {
             ...data,
             img: null,
+            imgName:null,
             about: null,
             dateOfBirth: null,
             position: null,
@@ -46,7 +47,8 @@ export const SignUpComponent: React.FC = () => {
             facebook: null,
             gitHub: null,
             hobbies: null,
-            languages: []
+            languages: [],
+            isPublic:false
         })
     }
 

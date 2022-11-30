@@ -15,6 +15,8 @@ import { useTypedSelector } from "../../../../common/hooks/useTypedSelector"
 import { collection, doc, onSnapshot } from "firebase/firestore"
 import db, { auth } from "../../../../firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
+import { url } from "inspector"
+import { PhotoMenuComponent } from "../../../modal/photoMenu/PhotoMenuComponent"
 
 export const ProfileComponent = () => {
 
@@ -34,8 +36,6 @@ export const ProfileComponent = () => {
             // @ts-ignore          
             dispatch(userActions.addInit(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })).filter(el => el.email === account?.email)[0]
             ))
-            // console.log(user);
-
         })
         dispatch(userActions.setLoading(false));
     }, [account])
@@ -47,9 +47,8 @@ export const ProfileComponent = () => {
             {!loading && user &&
                 <div className={s.container}>
                     <div className={s.headerContainer}>
-                        <div className={s.avatar}>
-                            <img src={user?.img || defaultUser}
-                                width="200px" alt="avatar" />
+                        <div className={s.avatar} style={{ backgroundImage: `url(${user?.img || defaultUser})` }}>
+                            <PhotoMenuComponent />
                         </div>
                         <h2>{user?.firstName} {user?.lastName}</h2>
                     </div>

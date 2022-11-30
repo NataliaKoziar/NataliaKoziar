@@ -1,8 +1,8 @@
-import { useState } from "react"
 import FormControl from '@mui/material/FormControl';
 import InputLabel from "@mui/material/InputLabel"
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { ILanguage } from "../../../../redux/models";
 import { UseFormRegister } from "react-hook-form"
 import s from "./formLan.module.scss"
@@ -10,75 +10,63 @@ import s from "./formLan.module.scss"
 interface SelectProps {
     item?: ILanguage
     index?: number
-    register: UseFormRegister<ILanguage>|UseFormRegister<FormValues>
+    register: UseFormRegister<FormValues>
+    remove?: any
 }
 type FormValues = {
-    data: ILanguage[]|[];
-  };
+    data: ILanguage[] | [];
+};
 
-export const SelectGroup = ({ item, index, register }: SelectProps) => {
-    // const [selectValue, setSelectValue] = useState(item || {
-    //     language: "",
-    //     level: ""
-    // });
-
-    // const handleChangeLanguage = (event: SelectChangeEvent) => {
-    //     setSelectValue({
-    //         ...selectValue,
-    //         language: event.target.value
-    //     });
-    // };
-    // const handleChangeLevel = (event: SelectChangeEvent) => {
-    //     setSelectValue({
-    //         ...selectValue,
-    //         level: event.target.value
-    //     });
-    // };
+export const SelectGroup = ({ item, index, register, remove }: SelectProps) => {
 
     return (
-        <div className={s.row}>
-            <FormControl sx={{ m: 1, minWidth: 200 }}>
-                <InputLabel id={item? `label1${index || 0}`:"label1"}>Language</InputLabel>
-                <Select
-                    labelId = {item? `label1${index || 0}`:"label1"}
-                    id={item? `select1${index || 0}`:"select1"}
-                    defaultValue={item?.language || ""}
-                    label="Language"
-                    // onChange={handleChangeLanguage}
-                    //@ts-ignore
-                    {...register(`data[${index || 0}.language]`)}
-                >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value="Ukrainian">Ukrainian</MenuItem>
-                    <MenuItem value="English">English</MenuItem>
-                    <MenuItem value="German">German</MenuItem>
-                    <MenuItem value="Polish">Polish</MenuItem>
-                </Select>
-            </FormControl>
-            <FormControl sx={{ m: 1, minWidth: 200 }}>
-                <InputLabel id={item? `label2${index || 0}`:"label2"}>Level</InputLabel>
-                <Select
-                    labelId={item? `label2${index || 0}`:"label2"}
-                    id={item? `select2${index || 0}`:"select2"}
-                    defaultValue={item?.level || ""}
-                    label="Level"
-                    // onChange={handleChangeLevel}
-                     //@ts-ignore
-                     {...register(`data[${index || 0}].level]`)}
-                >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value="elementary">elementary</MenuItem>
-                    <MenuItem value="pre-intermediate">pre-intermediate</MenuItem>
-                    <MenuItem value="intermediate">intermediate</MenuItem>
-                    <MenuItem value="upper-intermediate">upper-intermediate</MenuItem>
-                    <MenuItem value="advanced">advanced</MenuItem>
-                    <MenuItem value="native">native</MenuItem>
-                </Select>
-            </FormControl>
-        </div>
+        <>
+            <hr />
+            <div className={s.row}>
+
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                    <InputLabel id={item ? `label1${index || 0}` : "label1"}>Language</InputLabel>
+                    <Select
+                        labelId={item ? `label1${index || 0}` : "label1"}
+                        id={item ? `select1${index || 0}` : "select1"}
+                        defaultValue={item?.language || ""}
+                        label="Language"
+                        //@ts-ignore
+                        {...register(`data[${index || 0}.language]`)}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="Ukrainian">Ukrainian</MenuItem>
+                        <MenuItem value="English">English</MenuItem>
+                        <MenuItem value="German">German</MenuItem>
+                        <MenuItem value="Polish">Polish</MenuItem>
+                    </Select>
+                </FormControl>
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                    <InputLabel id={item ? `label2${index || 0}` : "label2"}>Level</InputLabel>
+                    <Select
+                        labelId={item ? `label2${index || 0}` : "label2"}
+                        id={item ? `select2${index || 0}` : "select2"}
+                        defaultValue={item?.level || ""}
+                        label="Level"
+                        //@ts-ignore
+                        {...register(`data[${index || 0}].level]`)}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="elementary">elementary</MenuItem>
+                        <MenuItem value="pre-intermediate">pre-intermediate</MenuItem>
+                        <MenuItem value="intermediate">intermediate</MenuItem>
+                        <MenuItem value="upper-intermediate">upper-intermediate</MenuItem>
+                        <MenuItem value="advanced">advanced</MenuItem>
+                        <MenuItem value="native">native</MenuItem>
+                    </Select>
+                </FormControl>
+                {item && <HighlightOffIcon onClick={() => remove(index)} />}
+
+            </div>
+        </>
     )
 }
