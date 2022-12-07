@@ -6,6 +6,8 @@
   left: 0;
   background-color: rgba($color: #353434, $alpha: 0.8);
   z-index: 10;
+  
+  
 }
 
 .content {
@@ -16,4 +18,5 @@
   margin-right: -50%;
   transform: translate(-50%, -50%);
   z-index: 15;
+ 
 }

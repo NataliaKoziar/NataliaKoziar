@@ -1,11 +1,10 @@
 import { useForm, } from "react-hook-form"
-import { useEffect } from "react"
 import s from "./SignUp.module.scss"
 import TextField from '@mui/material/TextField';
 import { createUserWithEmailAndPassword, UserCredential } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
 import { AppRoutes } from "../../../../common/Routes";
-import { addDoc, collection } from "firebase/firestore"
+import { addDoc, collection, setDoc, doc } from "firebase/firestore"
 import db, { auth } from "../../../../firebase"
 
 
@@ -24,13 +23,15 @@ export const SignUpComponent: React.FC = () => {
 
     const handleSignUp = async (data: User) => {
         const account = await createUserWithEmailAndPassword(auth, data.email, data.password,);
+        console.log(account);
+        
         await createDataAccount(data, account)
         navigate(AppRoutes.PROFILE)
 
     }
     const usersRef = collection(db, "users")
     const createDataAccount = async (data: User, account: UserCredential) => {
-        await addDoc(usersRef, {
+        await setDoc(doc(usersRef, account.user?.uid), {
             ...data,
             img: null,
             imgName:null,
@@ -38,7 +39,7 @@ export const SignUpComponent: React.FC = () => {
             dateOfBirth: null,
             position: null,
             skills: [],
-            id: account.user?.uid,
+            id: account.user.uid,
             address: null,
             education: [],
             experience: [],

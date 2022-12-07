@@ -1,13 +1,15 @@
-.message{
-  height: 20px;
-    p{
+.message {
+    height: 20px;
+
+    p {
         font-size: 12px;
         margin: 0px 0px 10px 10px;
         text-align: start;
         color: red;
     }
 }
-form{
+
+form {
     background-color: white;
     margin: 0 auto;
     padding: 0px 20px;
@@ -19,7 +21,8 @@ form{
     flex-direction: column;
     justify-content: space-evenly;
     color: rgb(60, 60, 60);
-    input{
+
+    input {
         height: 56px;
         font-size: 16px;
         background-color: rgb(28, 121, 28);
@@ -27,21 +30,40 @@ form{
         border: 2px solid transparent;
         border-radius: 5px;
     }
-    textarea{
-       height: 250px; 
-       border: 2px solid rgb(213, 209, 209);
-       border-radius: 5px;
-       padding: 10px;
-       font-size: 16px;
+
+    textarea {
+        height: 250px;
+        border: 2px solid rgb(213, 209, 209);
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 16px;
     }
-    .btn{
+    .list{
+        height: 400px;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        label{
+            display: flex;
+            align-items: center; 
+            height: 40px;
+            font-size: 18px;
+            input{
+                margin-right: 10px;
+            }
+        }
+
+    }
+
+    .btn {
         height: 40px;
         padding: 5px 25px;
         margin: 0 auto;
         cursor: pointer;
     }
 
-    }
-    textarea:focus{
-        outline: none;
-    }
+}
+
+textarea:focus {
+    outline: none;
+}

@@ -20,6 +20,8 @@ export const FormEducation = ({ item, index,  onClose }: FormProps) => {
     const { register, formState: { errors, }, handleSubmit, reset, } = useForm<IEducation>();
    
     console.log(index);
+    console.log(item);
+    
     
     
 
@@ -75,7 +77,7 @@ export const FormEducation = ({ item, index,  onClose }: FormProps) => {
 
     const onSubmit = (data: any) => {
         console.log(data);
-       ( item && index )? editUser(data) :addUser(data)
+        (item !== undefined && index !==undefined) ? editUser(data) : addUser(data)      
         reset()
         onClose()
     }

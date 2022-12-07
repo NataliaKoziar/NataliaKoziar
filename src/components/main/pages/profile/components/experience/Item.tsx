@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Modal } from "../../../../../modal/Modal"
 import { FormExperience } from "../../../../../modal/forms/FormExperience"
 import s from "../../profile.module.scss"
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 
 interface ItemProps {
     data: IExperience

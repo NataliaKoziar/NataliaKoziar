@@ -3,5 +3,6 @@ export const AppRoutes = {
     LOGIN:"/login",
     SIGN_UP:"/signUp",
     PROFILE:"/profile",
+    BLOG:"/blog",
     NOT_FOUND:"/*"
 }

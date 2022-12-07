@@ -1,5 +1,5 @@
 import defaultUser from "../../../../images/defaultUser.png"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { userActions } from "../../../../redux/action/userActions"
 import { AboutComponent } from "./components/About"
@@ -12,38 +12,50 @@ import { LanguagesComponent } from "./components/Languages"
 import { SkillsComponent } from "./components/Skills"
 import s from "./profile.module.scss"
 import { useTypedSelector } from "../../../../common/hooks/useTypedSelector"
-import { collection, doc, onSnapshot } from "firebase/firestore"
+import { collection, doc, onSnapshot, setDoc } from "firebase/firestore"
 import db, { auth } from "../../../../firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { url } from "inspector"
 import { PhotoMenuComponent } from "../../../modal/photoMenu/PhotoMenuComponent"
+import { LoadingConponent } from "../../../modal/LoadingComponent"
+import { Modal } from "../../../modal/Modal"
 
 export const ProfileComponent = () => {
 
     const [account, loading] = useAuthState(auth)
-
-
     const user = useTypedSelector(state => state.user.user)
+    const [isPublic, setPublic] = useState(user?.isPublic)
     const userRef = collection(db, "users")
     const dispatch = useDispatch()
-    console.log("account:", account);
+    console.log(user);
+    
+
+    const handlePublicCv = async()=>{
+        setPublic((prev)=>!prev)
+        const docRef = doc(db, "users", user.id)
+        try {
+            await setDoc(docRef, {
+                ...user,
+                isPublic
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
 
     useEffect(() => {
-        dispatch(userActions.setLoading(true));
-
         onSnapshot(userRef, (snapshot) => {
             // @ts-ignore          
-            dispatch(userActions.addInit(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })).filter(el => el.email === account?.email)[0]
+            dispatch(userActions.addInit(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })).filter(el => el.id === account?.uid)[0]
             ))
         })
-        dispatch(userActions.setLoading(false));
+
     }, [account])
 
 
     return (
         <>
-            {loading && <h2>Loading...</h2>}
+            {loading && <Modal children={<LoadingConponent />}></Modal>}
             {!loading && user &&
                 <div className={s.container}>
                     <div className={s.headerContainer}>
@@ -51,6 +63,7 @@ export const ProfileComponent = () => {
                             <PhotoMenuComponent />
                         </div>
                         <h2>{user?.firstName} {user?.lastName}</h2>
+                        <button className={s.btn} onClick={handlePublicCv}> {user?.isPublic ? 'Hide CV' : "Public CV"}</button>
                     </div>
                     <InfoComponent />
                     <ContactsComponent />

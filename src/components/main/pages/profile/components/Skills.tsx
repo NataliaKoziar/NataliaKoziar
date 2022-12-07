@@ -1,9 +1,9 @@
 import s from "../profile.module.scss"
 import { useState } from "react"
 import { EditComponent } from "../../../../modal/editComponent"
-import { FormInfo } from "../../../../modal/forms/FormInfo"
 import { Modal } from "../../../../modal/Modal"
 import { useTypedSelector } from "../../../../../common/hooks/useTypedSelector"
+import { FormSkills } from "../../../../modal/forms/FormSkills"
 
 export const SkillsComponent: React.FC = () => {
     const data = useTypedSelector(state => state.user.user?.skills)
@@ -22,7 +22,7 @@ export const SkillsComponent: React.FC = () => {
                 </ul>:
                 <div>Data has been empty yet</div>}
                 <EditComponent onOpen={handleOpenModal} />
-                {isModalOpen && (<Modal onClose={handleCloseModal} children={<FormInfo onClose={handleCloseModal}/>} />)}
+                {isModalOpen && (<Modal onClose={handleCloseModal} children={<FormSkills onClose={handleCloseModal}/>} />)}
             </div>
         </div>
     )

@@ -37,7 +37,7 @@ export const FormHobby = ({ data, onClose }: FormProps) => {
            
             <input className={s.btn} type={"button"} value = {"Save"} onClick={(e)=>{
                 e.preventDefault();
-                editData(value)
+                editData(value);
             }}/>
         </form>
     )
