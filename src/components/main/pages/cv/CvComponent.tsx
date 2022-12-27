@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
 import s from "./CvComponent.module.scss"
 import { IUser } from "../../../../redux/models"
 import HomeIcon from '@mui/icons-material/Home';

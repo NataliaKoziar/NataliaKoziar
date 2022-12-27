@@ -93,7 +93,7 @@ export const PhotoMenuComponent = () => {
             <Fab
                 size="medium"
                 aria-label="add"
-                sx={{ position: "absolute", bottom: 5, right: 10, zIndex: 1 }}
+                sx={{ position: "absolute", bottom: 5, right: 0, zIndex: 1 }}
                 id="fade-button"
                 aria-controls={open ? 'fade-menu' : undefined}
                 aria-haspopup="true"
