@@ -8,7 +8,8 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useTypedSelector } from '../../../common/hooks/useTypedSelector';
 import { useForm } from "react-hook-form"
 import { doc, setDoc } from 'firebase/firestore';
-import db from "../../../firebase"
+import db, {auth} from "../../../firebase";
+import {updateProfile} from "firebase/auth";
 
 interface FormProps {
     onClose: () => void
@@ -48,6 +49,11 @@ export const FormInfo = ({ onClose }: FormProps) => {
         } catch (e) {
             console.log(e);
 
+        }finally{
+            // @ts-ignore
+            updateProfile(auth.currentUser, {
+                displayName:`${data.firstName} ${data.lastName}`
+            })
         }
     }
 

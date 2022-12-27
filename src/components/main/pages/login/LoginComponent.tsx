@@ -19,18 +19,18 @@ interface Login {
 export const LoginComponent: React.FC = () => {
     const { register, formState: { errors, }, handleSubmit, reset, } = useForm<Login>();
     const navigate = useNavigate();
-    // const [account] = useAuthState(auth)
 
 
     const handleLogin = async (data: Login) => {
         try {
-            
+
             const user = await signInWithEmailAndPassword(auth, data.email, data.password)
             navigate(AppRoutes.PROFILE)
-            // navigate(AppRoutes.PROFILE + account?.uid)
+
         } catch (e) {
             console.log(e);
-            navigate(AppRoutes.NOT_FOUND)
+            alert('Invalid email or password, please, try again!')
+            navigate(AppRoutes.LOGIN)
         }
     }
 
@@ -39,17 +39,17 @@ export const LoginComponent: React.FC = () => {
         handleLogin(data)
     }
     return (
-        <form onSubmit={handleSubmit(onSubmit)} style={{height:"400px"}}>
+        <form onSubmit={handleSubmit(onSubmit)} style={{ height: "400px" }}>
             <h3>LogIn</h3>
-            <TextField label="Email"
+            <TextField error={(errors?.email) ? true : false} label="Email"
                 {...register("email", {
                     required: "This field is required!",
                 })} />
-            <TextField label="Password" type="password"
+            <TextField error={(errors?.password) ? true : false} label="Password" type="password"
                 {...register("password", {
                     required: "This field is required!",
                 })} />
-            <div className={s.message}>{(errors?.email || errors?.password) && <p> "Invalide email or password!!!"</p>}</div>
+            <div className={s.message}>{(errors?.email || errors?.password) && <p> Invalide email or password!!!</p>}</div>
             <input type="submit" value={'Sign in'} />
             <p>If you don`t have an account, please
                 <Link to={AppRoutes.SIGN_UP} >

@@ -67,3 +67,10 @@ form {
 textarea:focus {
     outline: none;
 }
+
+@media (max-width:465px) {
+    form{
+
+        width: 280px;
+    }
+}

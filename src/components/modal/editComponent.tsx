@@ -1,15 +1,13 @@
-import { Fab, Tooltip } from "@mui/material"
-import  EditIcon  from "@mui/icons-material/Edit"
+import { Tooltip } from "@mui/material"
+import EditIcon from "@mui/icons-material/Edit"
 
-interface Edit{
-    onOpen:()=>void
+interface Edit {
+    onOpen: () => void
 }
 
-export const EditComponent = ({onOpen}:Edit) => {
+export const EditComponent = ({ onOpen }: Edit) => {
     return (
         <Tooltip title="edit" >
-            <Fab color="primary" size="small"  aria-label="edit" sx={{position:"absolute", bottom:5, right:10, zIndex:1}} onClick={onOpen}>
-                <EditIcon />
-            </Fab>
+            <EditIcon color="primary" sx={{ position: "absolute", bottom: 5, right: 10, zIndex: 1, cursor: "pointer" }} onClick={onOpen} />
         </Tooltip>)
 }

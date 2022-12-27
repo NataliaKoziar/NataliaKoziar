@@ -19,27 +19,27 @@ export const ContactsComponent = () => {
                 <hr/>
                 <div className={s.item}>
                     <div className={s.category}>Address:</div>
-                    <div className="description">{user?.address}</div>
+                    <div className={s.description}>{user?.address}</div>
                 </div>
                 <div className={s.item}>
-                    <div className={s.category}>Mobile phone:</div>
-                    <div className="description">{user?.phone}</div>
+                    <div className={s.category}>Phone:</div>
+                    <div className={s.description}>{user?.phone}</div>
                 </div>
                 <div className={s.item}>
                     <div className={s.category}>Email:</div>
-                    <div className="description">{user?.email}</div>
+                    <div className={s.description}>{user?.email}</div>
                 </div>
                 <div className={s.item}>
                     <div className={s.category}>LinkedIn:</div>
-                    <div className="description">{user?.linkedIn}</div>
+                    <div className={s.description}>{user?.linkedIn}</div>
                 </div>
                 <div className={s.item}>
                     <div className={s.category}>Facebook:</div>
-                    <div className="description">{user?.facebook}</div>
+                    <div className={s.description}>{user?.facebook}</div>
                 </div>
                 <div className={s.item}>
                     <div className={s.category}>GitHub:</div>
-                    <div className="description">{user?.gitHub}</div>
+                    <div className={s.description}>{user?.gitHub}</div>
                 </div>
 
                 <EditComponent onOpen={handleOpenModal} />

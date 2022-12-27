@@ -44,11 +44,19 @@ export interface ILanguage{
 }
 
 
-
-
-
 export interface Istate{
     user:IUser
     error:null
     loading:boolean
+}
+
+export interface IPost {
+    post: string,
+    autor: {
+        name: string,
+        id: string,
+        photoUrl: string
+    },
+    date: number
+    id:string
 }

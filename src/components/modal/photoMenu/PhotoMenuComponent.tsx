@@ -6,7 +6,8 @@ import { Fab } from "@mui/material"
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import { useTypedSelector } from '../../../common/hooks/useTypedSelector';
 import { doc, setDoc } from 'firebase/firestore';
-import db, { storage } from "../../../firebase"
+import db, { storage, auth } from "../../../firebase"
+import {updateProfile} from "firebase/auth";
 import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -40,6 +41,11 @@ export const PhotoMenuComponent = () => {
             })
         } catch (e) {
             console.log(e);
+        }finally{
+             // @ts-ignore
+         updateProfile(auth.currentUser, {
+            photoURL:value
+        })
         }
     }
 
@@ -59,7 +65,7 @@ export const PhotoMenuComponent = () => {
                 .then(url => editUser(url, e.target.files[0].name)
                 ).then(()=>dispatch(userActions.setLoading(false)))
         }
-        )
+        );
         handleClose();
         
     }
@@ -68,10 +74,14 @@ export const PhotoMenuComponent = () => {
         deleteObject(imageRef).then(() => {
             editUser(null, null)
         }).catch(e => console.log(e))
-        handleClose();
+        
     }
     const handleDeleteImg = () => {
         deleteImg();
+         // @ts-ignore
+         updateProfile(auth.currentUser, {
+            photoURL:null
+        })
         handleClose();
     }
 

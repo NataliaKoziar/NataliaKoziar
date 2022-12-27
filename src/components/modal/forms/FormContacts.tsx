@@ -65,19 +65,19 @@ export const FormContacts = ({onClose}:FormProps) => {
             })}/>
              <TextField label="LinkedIn" defaultValue={user.linkedIn} error={(errors?.linkedIn) ? true : false}
              {...register("linkedIn", {
-                required: true,
+                required: false,
             })}/>
              <TextField label="Facebook" defaultValue={user.facebook} error={(errors?.facebook) ? true : false}
              {...register("facebook", {
-                required: true,
+                required: false,
             })}/>
              <TextField label="GitHub" defaultValue={user.gitHub} error={(errors?.gitHub) ? true : false}
              {...register("gitHub", {
-                required: true,
+                required: false,
             })}/>
              <div style={{height:"20px", color:"red"}}>
                 {(errors?.address || errors?.phone ||  errors?.linkedIn || errors?.gitHub) && 
-                <span>{ "All field must be required !!!"}</span>}
+                <span>{ "This field must be required !!!"}</span>}
                 </div>
             <input type="submit" value={'Save'} />
         </form>)

@@ -1,0 +1,123 @@
+// .inputGr{
+//     display: flex;
+//     flex-direction: column;
+//     max-width: 300px;
+// }
+.blog_page {
+
+    .btn {
+        padding: 5px;
+        background-color: rgb(7, 91, 236);
+        color: white;
+        border: 2px solid transparent;
+        border-radius: 5px;
+    }
+
+    .about {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // flex-wrap: wrap;
+        padding: 10px 25px 30px;
+        position: relative;
+
+        .description {
+            text-align: start;
+            padding: 0px 5px 10px 20px;
+            min-width: 40%;
+        }
+
+        img {
+            max-width: 50%;
+
+        }
+    }
+    h2{
+        color: rgb(33, 115, 214);
+      }
+    .post_list {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 0 auto;
+     
+
+        .post {
+            background: #fff;
+            max-width: 430px;
+            height: fit-content;
+            margin: 20px 0px;
+            box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+            transition: all 0.5s;
+
+           
+            .post_header {
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                font-weight: 500;
+                padding: 15px;
+                border-bottom: 1px solid rgb(215, 209, 209);
+                position: relative;
+
+                span {
+                    margin-left: 10px;
+                }
+                .post_edit{
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    color: grey;
+                    cursor: pointer;
+                    display: none;
+                    transition: all 0.5s;
+                }
+               
+            }
+
+            .post_description {
+                font-size: 15px;
+                color: grey;
+                padding: 20px 30px;
+                text-align: start;
+                border-bottom: 1px solid rgb(215, 209, 209);
+            }
+
+            .post_date {
+             font-style: italic;
+                color: grey;
+                font-size: 12px;
+                padding: 15px;
+                text-align: end;
+            }
+        }
+        .post:hover{
+            box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+            .post_edit{
+                display: block;
+            }
+        }
+       
+    }
+}
+@media (max-width:680px) {
+    .blog_page {
+        .about {
+            flex-wrap: wrap;
+            padding: 5px 0px ;
+            .description {
+                color: #fff;
+                position: absolute;
+                top: 5px;
+                left: 0px;
+                right: 0px;
+                background: rgba($color: #353434, $alpha: 0.8);
+            }
+            img{
+                max-width: 100%;
+               
+            }
+        } 
+    }
+}

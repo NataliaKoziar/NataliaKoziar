@@ -4,8 +4,9 @@ import TextField from '@mui/material/TextField';
 import { createUserWithEmailAndPassword, UserCredential } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
 import { AppRoutes } from "../../../../common/Routes";
-import { addDoc, collection, setDoc, doc } from "firebase/firestore"
+import { collection, setDoc, doc } from "firebase/firestore"
 import db, { auth } from "../../../../firebase"
+import {updateProfile} from "firebase/auth"
 
 
 interface User {
@@ -22,11 +23,21 @@ export const SignUpComponent: React.FC = () => {
     const navigate = useNavigate();
 
     const handleSignUp = async (data: User) => {
-        const account = await createUserWithEmailAndPassword(auth, data.email, data.password,);
-        console.log(account);
-        
-        await createDataAccount(data, account)
-        navigate(AppRoutes.PROFILE)
+        try{
+            const account = await createUserWithEmailAndPassword(auth, data.email, data.password,);
+            // @ts-ignore
+            updateProfile(auth.currentUser, {
+                displayName:`${data.firstName} ${data.lastName}`
+            })
+            console.log(account);
+            
+            await createDataAccount(data, account)
+            navigate(AppRoutes.PROFILE)
+        }catch(e){
+            console.log(e)
+            alert('Account with this email already exists!')
+            navigate(AppRoutes.SIGN_UP)
+        }
 
     }
     const usersRef = collection(db, "users")
@@ -57,11 +68,11 @@ export const SignUpComponent: React.FC = () => {
         reset()
         handleSignUp(data)
     }
-    const isUniqueEmail = (email: string): boolean => {
-        console.log(email);
-        return true
+    // const isUniqueEmail = (email: string): boolean => {
+    //     console.log(email);
+    //     return true
 
-    }
+    // }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -86,7 +97,7 @@ export const SignUpComponent: React.FC = () => {
                 {...register('email', {
                     required: "This field is required!",
                     pattern: { value: /^([A-z0-9._-]+)(@[A-z0-9.-]+)(\.[A-z]{2,3})$/, message: "Invalid email!" },
-                    validate: (input) => isUniqueEmail(input)
+                    // validate: (input) => isUniqueEmail(input)
                 })} />
             <div className={s.message}>{errors?.email && <p>{errors?.email?.message || "A user with this email already exist!!!"}</p>}</div>
 

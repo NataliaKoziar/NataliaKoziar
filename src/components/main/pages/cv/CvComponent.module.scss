@@ -64,8 +64,11 @@
     .rightSide {
         .box {
             text-align: left;
-            padding: 0px 20px;
+            padding: 0px 20px 10px;
             position: relative;
+            a{
+                text-decoration: none;
+            }
             .avatar{
                 height: 220px;
                 width: 220px;
@@ -136,5 +139,17 @@
         grid-row-start: 8;
         grid-row-end: 9;
         background-color: #ffc800;
+    }
+}
+@media (max-width:810px) {
+    .container{
+        transform: scale(0.83);
+        top: -180px;
+    }  
+}
+@media (max-width:680px) {
+    .container{
+        transform: scale(0.6);
+        top: -300px;
     }
 }

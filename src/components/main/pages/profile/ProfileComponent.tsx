@@ -26,7 +26,7 @@ export const ProfileComponent = () => {
     const [isPublic, setPublic] = useState(user?.isPublic)
     const userRef = collection(db, "users")
     const dispatch = useDispatch()
-    console.log(user);
+    console.log(account);
     
 
     const handlePublicCv = async()=>{
@@ -49,14 +49,15 @@ export const ProfileComponent = () => {
             dispatch(userActions.addInit(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })).filter(el => el.id === account?.uid)[0]
             ))
         })
+        dispatch(userActions.setLoading(false))
 
     }, [account])
 
 
     return (
         <>
-            {loading && <Modal children={<LoadingConponent />}></Modal>}
-            {!loading && user &&
+            {loading && account == null && <Modal children={<LoadingConponent />}></Modal>}
+            {!loading && account?.uid === user?.id &&
                 <div className={s.container}>
                     <div className={s.headerContainer}>
                         <div className={s.avatar} style={{ backgroundImage: `url(${user?.img || defaultUser})` }}>
