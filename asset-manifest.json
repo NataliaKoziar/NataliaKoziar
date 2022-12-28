@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/NataliaKoziar.github.io/static/css/main.95bc9ea3.css",
-    "main.js": "/NataliaKoziar.github.io/static/js/main.50f7e5f8.js",
-    "static/js/787.ba0bb6f9.chunk.js": "/NataliaKoziar.github.io/static/js/787.ba0bb6f9.chunk.js",
-    "static/media/laptop.png": "/NataliaKoziar.github.io/static/media/laptop.2358471614d3460a7b69.png",
-    "static/media/bgrImg.jpeg": "/NataliaKoziar.github.io/static/media/bgrImg.067e32b1c8ae904b9be3.jpeg",
-    "static/media/homepage.png": "/NataliaKoziar.github.io/static/media/homepage.5d675cf4b2e23f7bd405.png",
-    "static/media/logo.png": "/NataliaKoziar.github.io/static/media/logo.f40114a87065e8196be4.png",
-    "static/media/defaultUser.png": "/NataliaKoziar.github.io/static/media/defaultUser.3c70c6dd4c2f7d7e6286.png",
-    "index.html": "/NataliaKoziar.github.io/index.html",
-    "main.95bc9ea3.css.map": "/NataliaKoziar.github.io/static/css/main.95bc9ea3.css.map",
-    "main.50f7e5f8.js.map": "/NataliaKoziar.github.io/static/js/main.50f7e5f8.js.map",
-    "787.ba0bb6f9.chunk.js.map": "/NataliaKoziar.github.io/static/js/787.ba0bb6f9.chunk.js.map"
+    "main.css": "/NataliaKoziar_CV.github.io/static/css/main.76ff615c.css",
+    "main.js": "/NataliaKoziar_CV.github.io/static/js/main.fea90ec9.js",
+    "static/js/787.ba0bb6f9.chunk.js": "/NataliaKoziar_CV.github.io/static/js/787.ba0bb6f9.chunk.js",
+    "static/media/laptop.png": "/NataliaKoziar_CV.github.io/static/media/laptop.2358471614d3460a7b69.png",
+    "static/media/bgrImg.jpeg": "/NataliaKoziar_CV.github.io/static/media/bgrImg.067e32b1c8ae904b9be3.jpeg",
+    "static/media/homepage.png": "/NataliaKoziar_CV.github.io/static/media/homepage.5d675cf4b2e23f7bd405.png",
+    "static/media/logo.png": "/NataliaKoziar_CV.github.io/static/media/logo.f40114a87065e8196be4.png",
+    "static/media/defaultUser.png": "/NataliaKoziar_CV.github.io/static/media/defaultUser.3c70c6dd4c2f7d7e6286.png",
+    "index.html": "/NataliaKoziar_CV.github.io/index.html",
+    "main.76ff615c.css.map": "/NataliaKoziar_CV.github.io/static/css/main.76ff615c.css.map",
+    "main.fea90ec9.js.map": "/NataliaKoziar_CV.github.io/static/js/main.fea90ec9.js.map",
+    "787.ba0bb6f9.chunk.js.map": "/NataliaKoziar_CV.github.io/static/js/787.ba0bb6f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.95bc9ea3.css",
-    "static/js/main.50f7e5f8.js"
+    "static/css/main.76ff615c.css",
+    "static/js/main.fea90ec9.js"
   ]
 }
