@@ -1,7 +1,6 @@
 import s from "../profile.module.scss"
 import { useState } from "react"
 import { EditComponent } from "../../../../modal/editComponent"
-import { FormInfo } from "../../../../modal/forms/FormInfo"
 import { Modal } from "../../../../modal/Modal"
 import { useTypedSelector } from "../../../../../common/hooks/useTypedSelector"
 import { FormHobby } from "../../../../modal/forms/FormHobby"

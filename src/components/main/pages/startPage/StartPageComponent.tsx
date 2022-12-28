@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button"
 import homeimg from "../../../../images/homepage.png"
-import { collection, doc, onSnapshot, setDoc, getDocs } from "firebase/firestore"
+import { collection,  getDocs } from "firebase/firestore"
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"

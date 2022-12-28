@@ -1,10 +1,10 @@
-import { IEducation, IExperience } from "../../../../../../redux/models"
+import { IEducation} from "../../../../../../redux/models"
 import { EditComponent } from "../../../../../modal/editComponent"
 import { useState } from "react"
 import { Modal } from "../../../../../modal/Modal"
 import { FormEducation } from "../../../../../modal/forms/FormEducation"
 import s from "../../profile.module.scss"
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { RemoveComponent } from "../../../../../modal/RemoveComponent"
 import { doc, setDoc } from 'firebase/firestore';
 import db from "../../../../../../firebase"

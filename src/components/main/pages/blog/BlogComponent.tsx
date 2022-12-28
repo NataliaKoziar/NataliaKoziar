@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { collection, addDoc, doc, getDocs, onSnapshot } from "firebase/firestore"
+import { collection, getDocs, onSnapshot } from "firebase/firestore"
 import db, { auth } from "../../../../firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { FormCreatePost } from "../../../modal/forms/FormCreatePost";
@@ -17,20 +17,20 @@ export const BlogComponent = () => {
     const [isModalOpen, setModalOpen] = useState<boolean>(false)
     const postsRef = collection(db, "posts");
 
-    const getData = async () => {
-        let arr: IPost[] | [] = [];
-        const querySnapshot = await getDocs(postsRef);
-        try {
-            querySnapshot.forEach((doc) => {
-                // @ts-ignore
-                arr.push(doc.data());
+    // const getData = async () => {
+    //     let arr: IPost[] | [] = [];
+    //     const querySnapshot = await getDocs(postsRef);
+    //     try {
+    //         querySnapshot.forEach((doc) => {
+    //             // @ts-ignore
+    //             arr.push(doc.data());
 
-            })
-            setPosts(arr)
-        } catch (e) {
-            console.log(e);
-        }
-    }
+    //         })
+    //         setPosts(arr)
+    //     } catch (e) {
+    //         console.log(e);
+    //     }
+    // }
 
 
     useEffect(() => {

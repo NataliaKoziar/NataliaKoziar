@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom"
-import { AppRoutes } from "../../common/Routes"
 import s from "./Modal.module.scss"
 interface ModalProps {
     children: React.ReactNode
