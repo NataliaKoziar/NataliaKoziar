@@ -20,7 +20,7 @@ export const FormLanguage = ({ userData, onClose }: FormProps) => {
     const user = useTypedSelector(state => state.user.user)
     const title = userData ? "Edit data about languages" : "Add data about languages"
     const btn = userData ? "Save" : "Add"
-    // const { register, formState: { errors, }, handleSubmit, reset, } = useForm<ILanguage>();
+  
     const { control, handleSubmit, register } = useForm<FormValues>({
         defaultValues: {
             data: userData || []

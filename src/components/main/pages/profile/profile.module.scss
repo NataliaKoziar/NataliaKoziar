@@ -37,6 +37,7 @@
     }
 
     .userData {
+        background-color: rgb(244, 248, 248);
         position: relative;
         border: 2px solid rgb(179, 175, 175);
         border-radius: 5px;
@@ -68,7 +69,6 @@
                     width: 70%;
                     text-overflow: ellipsis;
                     overflow: hidden;
-                    // width: 100%;
                     white-space: nowrap;
                 }
 

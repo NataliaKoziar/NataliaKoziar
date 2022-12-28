@@ -1,10 +1,5 @@
-// .inputGr{
-//     display: flex;
-//     flex-direction: column;
-//     max-width: 300px;
-// }
-.blog_page {
 
+.blog_page {
     .btn {
         padding: 5px;
         background-color: rgb(7, 91, 236);
@@ -17,7 +12,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        // flex-wrap: wrap;
         padding: 10px 25px 30px;
         position: relative;
 
@@ -33,7 +27,7 @@
         }
     }
     h2{
-        color: rgb(33, 115, 214);
+        color: rgb(7, 52, 107);
       }
     .post_list {
         display: flex;

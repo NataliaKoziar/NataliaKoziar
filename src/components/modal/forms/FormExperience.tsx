@@ -19,10 +19,6 @@ export const FormExperience = ({ item, index, onClose }: FormProps) => {
     const title = item ? "Edit data about your experience" : "Add data about your experience"
     const { register, formState: { errors, }, handleSubmit, reset, } = useForm<IExperience>();
 
-    // console.log(index);
-    // console.log(item);
-
-
 
     const addUser = async (data: any) => {
         const docRef = doc(db, "users", user.id)

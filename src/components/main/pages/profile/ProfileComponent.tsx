@@ -26,7 +26,7 @@ export const ProfileComponent = () => {
     const [isPublic, setPublic] = useState(user?.isPublic)
     const userRef = collection(db, "users")
     const dispatch = useDispatch()
-    console.log(account);
+
     
 
     const handlePublicCv = async()=>{

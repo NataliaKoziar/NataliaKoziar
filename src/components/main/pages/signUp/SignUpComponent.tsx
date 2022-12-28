@@ -29,8 +29,7 @@ export const SignUpComponent: React.FC = () => {
             updateProfile(auth.currentUser, {
                 displayName:`${data.firstName} ${data.lastName}`
             })
-            console.log(account);
-            
+           
             await createDataAccount(data, account)
             navigate(AppRoutes.PROFILE)
         }catch(e){
@@ -68,11 +67,7 @@ export const SignUpComponent: React.FC = () => {
         reset()
         handleSignUp(data)
     }
-    // const isUniqueEmail = (email: string): boolean => {
-    //     console.log(email);
-    //     return true
-
-    // }
+  
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -97,7 +92,7 @@ export const SignUpComponent: React.FC = () => {
                 {...register('email', {
                     required: "This field is required!",
                     pattern: { value: /^([A-z0-9._-]+)(@[A-z0-9.-]+)(\.[A-z]{2,3})$/, message: "Invalid email!" },
-                    // validate: (input) => isUniqueEmail(input)
+                   
                 })} />
             <div className={s.message}>{errors?.email && <p>{errors?.email?.message || "A user with this email already exist!!!"}</p>}</div>
 

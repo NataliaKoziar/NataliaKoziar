@@ -1,5 +1,4 @@
 import TextField from '@mui/material/TextField';
-import * as React from 'react';
 import { useTypedSelector } from '../../../common/hooks/useTypedSelector';
 import { useForm } from "react-hook-form"
 import { doc, setDoc } from 'firebase/firestore';
@@ -19,9 +18,7 @@ interface Contacts {
 }
 
 export const FormContacts = ({onClose}:FormProps) => {
-    const user = useTypedSelector(state => state.user.user)
-    console.log(user);
-    
+    const user = useTypedSelector(state => state.user.user) 
     const { register, formState: { errors, }, handleSubmit, reset, } = useForm<Contacts>();
    
     
@@ -39,8 +36,7 @@ export const FormContacts = ({onClose}:FormProps) => {
     }
 
     const onSubmit = (data: Contacts) => {
-        console.log(data);
-        editUser(data)
+               editUser(data)
         reset()
        onClose()
     }

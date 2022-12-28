@@ -1,4 +1,3 @@
-import * as React from 'react';
 import CircularProgress, {
   CircularProgressProps,
 } from '@mui/material/CircularProgress';
@@ -7,16 +6,6 @@ import Box from '@mui/material/Box';
 
 
 export  function ProgressComponent(props: CircularProgressProps & { value: number }) {
-//   const [progress, setProgress] = React.useState(props.value);
-
-//   React.useEffect(() => {
-//     const timer = setInterval(() => {
-//       setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
-//     }, 800);
-//     return () => {
-//       clearInterval(timer);
-//     };
-//   }, []);
 
   return (
     <Box sx={{ position: 'relative', display: 'inline-flex' }}>

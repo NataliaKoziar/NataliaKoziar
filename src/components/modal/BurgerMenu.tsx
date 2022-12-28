@@ -10,7 +10,6 @@ import SendIcon from '@mui/icons-material/Send';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { AppRoutes } from '../../common/Routes';
 import { User } from 'firebase/auth';
 interface MenuProps {

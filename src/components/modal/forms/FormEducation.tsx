@@ -18,11 +18,7 @@ export const FormEducation = ({ item, index,  onClose }: FormProps) => {
     const user = useTypedSelector(state => state.user.user)
     const title = item ? "Edit data about education" : "Add data about education"
     const { register, formState: { errors, }, handleSubmit, reset, } = useForm<IEducation>();
-   
-    console.log(index);
-    console.log(item);
-    
-    
+      
     
 
     const addUser = async (data: any) => {

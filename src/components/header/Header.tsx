@@ -15,7 +15,7 @@ import { signOut } from "firebase/auth"
 import { BurgerMenu } from "../modal/BurgerMenu";
 export const Header: React.FC = () => {
     const [account] = useAuthState(auth)
-    console.log(account)
+
     const handleSignOut = async () => {
         await signOut(auth)
     }
