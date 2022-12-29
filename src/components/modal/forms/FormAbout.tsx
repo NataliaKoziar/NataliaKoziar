@@ -30,7 +30,7 @@ export const FormAbout = ({ data, onClose }: FormProps) => {
 
 
     return (
-        <form style={{height:"450px", width:"550px"}}>
+        <form style={{height:"450px"}}>
             <h3>Add some description about yourself</h3>
             {/* @ts-ignore */}
             <textarea cols="60" rows="10" placeholder="Let's add your summary" value={value} onChange={(e) => setValue(e.target.value)}/>

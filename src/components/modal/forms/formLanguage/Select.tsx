@@ -64,7 +64,7 @@ export const SelectGroup = ({ item, index, register, remove }: SelectProps) => {
                         <MenuItem value="native">native</MenuItem>
                     </Select>
                 </FormControl>
-                {item && <HighlightOffIcon onClick={() => remove(index)} />}
+                {item && <HighlightOffIcon sx={{position:"absolute", top:"0px", right:"0px"}} onClick={() => remove(index)} />}
 
             </div>
         </>

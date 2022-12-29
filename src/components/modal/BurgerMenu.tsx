@@ -29,21 +29,11 @@ export const BurgerMenu = ({ account, handleSignOut }: MenuProps) => {
     };
     return (
         <div>
-
-            {/* <Fab
-                size="medium"
-                aria-label="add"
-                // sx={{ position: "absolute", bottom: 5, right: 10, zIndex: 1 }}
-                id="fade-button"
-                aria-controls={open ? 'fade-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-            > */}
+    
             <Button onClick={handleClick}>
                 <MenuIcon color='info' />
             </Button>
-            {/* </Fab> */}
+           
             <Menu
                 id="fade-menu"
                 MenuListProps={{
@@ -54,12 +44,12 @@ export const BurgerMenu = ({ account, handleSignOut }: MenuProps) => {
                 onClose={handleClose}
                 TransitionComponent={Fade}
             >
-                <MenuItem onClick={() => {navigate(AppRoutes.PROFILE); handleClose()}}>
+                { account !== null && <MenuItem onClick={() => {navigate(AppRoutes.PROFILE); handleClose()}}>
                     <Avatar
                         src={account?.photoURL || "/broken-image.jpg"}
                         sx={{ width: 25, height: 25, marginRight: '10px' }}
                     /> Profile
-                </MenuItem>
+                </MenuItem>}
                 <MenuItem onClick={() => {navigate(AppRoutes.MAIN); handleClose()}}>
                 <ListItemIcon>
                         <HomeIcon fontSize="small" />

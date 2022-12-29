@@ -18,6 +18,8 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import { PhotoMenuComponent } from "../../../modal/photoMenu/PhotoMenuComponent"
 import { LoadingConponent } from "../../../modal/LoadingComponent"
 import { Modal } from "../../../modal/Modal"
+import { Navigate } from "react-router-dom"
+import { AppRoutes } from "../../../../common/Routes"
 
 export const ProfileComponent = () => {
 
@@ -42,6 +44,7 @@ export const ProfileComponent = () => {
         }
     }
 
+   
 
     useEffect(() => {
         onSnapshot(userRef, (snapshot) => {
@@ -53,11 +56,14 @@ export const ProfileComponent = () => {
 
     }, [account])
 
+    if(account === null && !loading || account=== undefined && !loading){
+        return <Navigate to ={AppRoutes.LOGIN}/>
+        }
 
     return (
         <>
             {loading && account == null && <Modal children={<LoadingConponent />}></Modal>}
-            {!loading && account?.uid === user?.id &&
+            {(!loading && account?.uid === user?.id) &&
                 <div className={s.container}>
                     <div className={s.headerContainer}>
                         <div className={s.avatar} style={{ backgroundImage: `url(${user?.img || defaultUser})` }}>

@@ -11,8 +11,7 @@
 }
 
 .container {
-    // height: 98vh;
-    // width: 80vh;
+    
     height: 297mm;
     width: 210mm;
     margin: 0 auto;
@@ -25,6 +24,7 @@
     position: absolute;
     top: -80px;
     left: calc(50% - 105mm);
+   
 
 
 
@@ -145,11 +145,22 @@
     .container{
         transform: scale(0.83);
         top: -180px;
+        left: calc(50% - 0.5width);
     }  
 }
 @media (max-width:680px) {
     .container{
-        transform: scale(0.6);
-        top: -300px;
+        transform: scale(0.55);
+        top: -320px;
+        left: calc(50% - 0.5width);
     }
+}
+@media (max-width:465px) {
+    .container{
+        transform: scale(0.45);
+        top: -80px;
+        top: -320px;
+        left: calc(50% - 0.5width);
+    }
+   
 }

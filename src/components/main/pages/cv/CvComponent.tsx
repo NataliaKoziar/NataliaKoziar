@@ -104,7 +104,7 @@ export const CvComponent = () => {
                     </div>
 
                     <div className={s.rightSide}>
-                        <div className={s.box}>
+                        <div className={s.box} id={s.title_cv}>
                             <div className={`${s.title} ${s.size30}`}> {user.firstName?.toUpperCase()} {user.lastName?.toUpperCase()}</div>
                             <div className={s.subtitle}>{user.position?.toUpperCase()}</div>
                         </div>
