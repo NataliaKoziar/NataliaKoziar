@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/NataliaKoziar_CV.github.io/static/css/main.76ff615c.css",
-    "main.js": "/NataliaKoziar_CV.github.io/static/js/main.fea90ec9.js",
+    "main.css": "/NataliaKoziar_CV.github.io/static/css/main.e824a4ca.css",
+    "main.js": "/NataliaKoziar_CV.github.io/static/js/main.62d5faa9.js",
     "static/js/787.ba0bb6f9.chunk.js": "/NataliaKoziar_CV.github.io/static/js/787.ba0bb6f9.chunk.js",
     "static/media/laptop.png": "/NataliaKoziar_CV.github.io/static/media/laptop.2358471614d3460a7b69.png",
     "static/media/bgrImg.jpeg": "/NataliaKoziar_CV.github.io/static/media/bgrImg.067e32b1c8ae904b9be3.jpeg",
@@ -9,12 +9,12 @@
     "static/media/logo.png": "/NataliaKoziar_CV.github.io/static/media/logo.f40114a87065e8196be4.png",
     "static/media/defaultUser.png": "/NataliaKoziar_CV.github.io/static/media/defaultUser.3c70c6dd4c2f7d7e6286.png",
     "index.html": "/NataliaKoziar_CV.github.io/index.html",
-    "main.76ff615c.css.map": "/NataliaKoziar_CV.github.io/static/css/main.76ff615c.css.map",
-    "main.fea90ec9.js.map": "/NataliaKoziar_CV.github.io/static/js/main.fea90ec9.js.map",
+    "main.e824a4ca.css.map": "/NataliaKoziar_CV.github.io/static/css/main.e824a4ca.css.map",
+    "main.62d5faa9.js.map": "/NataliaKoziar_CV.github.io/static/js/main.62d5faa9.js.map",
     "787.ba0bb6f9.chunk.js.map": "/NataliaKoziar_CV.github.io/static/js/787.ba0bb6f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.76ff615c.css",
-    "static/js/main.fea90ec9.js"
+    "static/css/main.e824a4ca.css",
+    "static/js/main.62d5faa9.js"
   ]
 }
