@@ -1,0 +1,32 @@
+.form{
+   height: auto;
+   width: auto;
+   .fields{
+       .row{
+        position: relative;
+           display: flex;
+           justify-content: space-evenly;
+           padding: 10px 15px;
+       }
+   }
+   input{
+    margin: 20px auto;
+    padding: 10px 40px;
+   }
+   
+}
+@media (max-width:560px) {
+    .form{
+       transform: scale(0.8);
+    }
+}
+@media (max-width:450px) {
+    .form{
+        // transform: scale(0.6);
+        .fields{
+            .row{
+                flex-wrap: wrap;
+            }
+        }
+     }
+}
